@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* para la fuentes*/
+@font-face{
+    font-family: 'Lexend-Regular';
+    src:url('@/assets/Lexend-Regular.eot');
+    src: url('@/assets/Lexend-Regular.woff') format('woff'), url('@/assets/Lexend-Regular.ttf') format('trutype'), url('@/assets/Lexend-Regular.eot#iefix') format('eot'), url('@/assets/Lexend-Regular.woff2') format('woff2')
+   }
+   
+   .html, body{
+       font: inherit;
+       font-size: 100%;
+       font-family: 'Lexend-Regular', Arial, serif;
+       font-weight: normal;
+       font-style: normal;
+   }
