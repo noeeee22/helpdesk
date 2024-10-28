@@ -46,7 +46,7 @@ const rol = ref([
                 <div class="grid grid-cols-12 gap-4 my-4">
                     <div class="flex flex-col col-span-12 md:col-span-4">
                         <label for="username">Tickets Asignados</label>
-                        <Select optionLabel="name" placeholder="Seleccione un agente"
+                        <Select  placeholder="Seleccione un agente"
                         class="w-full"/>
                     </div>
                     <div class="flex flex-col col-span-12 md:col-span-4">

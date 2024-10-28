@@ -15,6 +15,7 @@ declare module 'vue' {
     Card: typeof import('primevue/card')['default']
     ClientDashboard: typeof import('./src/views/ClientDashboard.vue')['default']
     Column: typeof import('primevue/column')['default']
+    Dashboard: typeof import('./src/components/PortalClientes/dashboard.vue')['default']
     DataTable: typeof import('primevue/datatable')['default']
     DatePicker: typeof import('primevue/datepicker')['default']
     Dialog: typeof import('primevue/dialog')['default']

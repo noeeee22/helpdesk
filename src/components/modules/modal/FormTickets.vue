@@ -22,14 +22,21 @@ const agent = ref([
 
 <template>
     <div class="items-center">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-3">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-3">
             <div class="col-span-12 flex flex-col">
                 <label for="username">Ticket</label>
                 <InputText id="username" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
             </div>
-        </div>
+        </div> -->
         <div class="grid grid-cols-12 gap-4 my-4">
-
+            <div class="flex flex-col col-span-12 md:col-span-6">
+                <label for="username">Ticket</label>
+                <InputText id="username" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
+            </div>
+            <div class="flex flex-col col-span-12 md:col-span-6">
+                <label for="username">Asunto</label>
+                <InputText id="username" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
+            </div>
             <div class="flex flex-col col-span-12 md:col-span-6">
                 <label for="username">Estado</label>
                 <Select v-model="selectedState" :options="state" optionLabel="name" placeholder="Seleccione el estado"
@@ -40,6 +47,7 @@ const agent = ref([
                 <Select v-model="selectedAgent" :options="agent" optionLabel="name" placeholder="Seleccione un agente"
                 class="w-full"/>
             </div>
+
         </div>
         <div>
 

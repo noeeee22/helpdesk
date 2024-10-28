@@ -47,20 +47,20 @@ const PlanesCard = [
 </script>
 
 <template>
-  <div class="container mx-auto p-4 md:my-5 ">
-    <div class="grid grid-cols-1 sm:grid-cols-6 md:grid-cols-12 gap-4 ">
-      <div v-for="(plan, index) in PlanesCard" :key="index" class="col-span-3 ">
-        <div class="h-48 w-full flex flex-col justify-between relative rounded-lg shadow-md gap-2 p-5"
+  <div class="container mx-auto p-4 md:my-5 md:full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-9 ">
+      <div v-for="(plan, index) in PlanesCard" :key="index" class="col-span-1 ">
+        <div class="h-60 w-full flex flex-col justify-between relative rounded-xl shadow-md gap-2 p-5"
           style="background-color: rgba(255, 255, 255, 0.8);">
           <div class="flex items-center">
             <i :class="`mr-2 ${plan.icon}`" style="font-size: 1.5rem" />
             <span class="font-bold text-xl">{{ plan.title }}</span>
           </div>
-          <p class="text-base justify-center text-gray-800">{{ plan.subtitle }}</p>
+          <p class="sm:text-lg text-base justify-center text-gray-800">{{ plan.subtitle }}</p>
 
           <span class="text-gray-800 flex justify-end items-start font-semibold text-3xl z-10">{{ plan.number }}</span>
           <img :src="plan.img" alt="tetas"
-            class="absolute bottom-0 right-0 left-0 w-full h-20 object-cover rounded-md" />
+            class="absolute bottom-0 right-0 left-0 w-full h-20 object-cover rounded-xl" />
         </div>
       </div>
     </div>

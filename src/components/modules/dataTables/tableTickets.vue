@@ -111,8 +111,8 @@ const formatDate = (value) => {
                             </div>
                         </div>
                     </template>
-                    <template #empty> No customers found. </template>
-                    <template #loading> Loading customers data. Please wait. </template>
+                    <template #empty> No se encontraron clientes. </template>
+                    <template #loading>Cargando datos de clientes. Por favor espere. </template>
                     <Column field="name" header="Nombre" style="min-width: 12rem">
                         <template #body="{ data }">
                             {{ data.name }}

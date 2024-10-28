@@ -96,12 +96,13 @@ const confirm2 = () => {
       label: 'Cerrar',
       severity: 'danger'
     },
-    accept: () => {
-      toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Sesión cerrada', life: 3000 });
-      router.push({ name: 'home' });
+    accept: async () => {
+      toast.add({ severity: "info", summary: "Sesión cerrada", detail: "Cerrando sesión...", life: 3000 });
+      await authStore.logout();
+      await router.push({ name: "home" });
     },
     reject: () => {
-      toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+      toast.add({ severity: 'error', summary: 'Cancelado', detail: 'Se mantuvo la sesión', life: 3000 });
     }
   });
 };
