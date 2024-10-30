@@ -4,6 +4,28 @@ import { ref } from 'vue';
 const value = ref('');
 const ticket = ref('');
 
+const Tickets = ref ({
+    title: null,
+    description: null,
+    client: null,
+    image: null,
+})
+
+async function GetInfoTickets(){
+    loadingTable.value= true;
+    const apiRes = await Get({
+        route: "ticket"
+    });
+    if(apiRes.status){
+        dataForTable.value = apiRes.response.data.results;
+    } else{
+        dataForTable.value = []
+    }
+    loadingTable.value = false;
+}
+// onMounted(()=>{
+//     GetInfoTickets()
+// });
 
 </script>
 
@@ -34,11 +56,11 @@ const ticket = ref('');
             </div>
 
         </div>
-        <div>
+        <!-- <div>
 
             <label for="">Asunto</label>
             <Editor v-model="value" editorStyle="height: 240px" class="mb-3" />
-        </div>
-        <Button label="Registrar" class=" w-full !bg-cyan-600 !border-none hover:!bg-cyan-500"/>
+        </div> -->
+        <Button label="Registrar" class=" w-full !bg-cyan-600 !border-none hover:!bg-cyan-500" @click="GetInfoAgents"/>
     </div>
 </template>
