@@ -1,12 +1,11 @@
 import router from "@/router/index.js"
 import { defineStore } from "pinia";
 
-const useCookie = useCookies(["authToken"]);
-export const AuthStore = defineStore("authStore", {
 
+export const AuthStore = defineStore("authStore", {
     state: () => ({
         authToken: localStorage.getItem("authToken") ? {
-            ...JSON.parse(localStorage.getItem("authToken")) || null
+            ...JSON.parse(localStorage.getItem("authToken"))
         } : null,
     }),
 
@@ -14,15 +13,23 @@ export const AuthStore = defineStore("authStore", {
         async login(data){
             this.authToken = data;
             localStorage.setItem('authToken', JSON.stringify(data))
-            await router.push({name: 'home'})//cambiar
+            await router.push({name: 'panelPrincipal'})
         },
         async logout(){
             this.authToken = null;
-            this.infoCollector = null;
-            useCookie.remove("authToken", { path:"/" });
-            useCookie.remove("infoCollector", { path: "/" });
+            localStorage.removeItem('authToken');
             await router.push({ name: "login" });
-            localStorage.clear();
+
+            // this.authToken = null;
+            // this.infoCollector = null;
+            // useCookie.remove("authToken", { path:"/" });
+            // useCookie.remove("infoCollector", { path: "/" });
+            // await router.push({ name: "login" });
+
+            // const cookies = useCookies(["authToken"]);
+            // cookies.remove("authToken", { path: "/" });
+            // cookies.remove("infoCollector", { path: "/" });
+            // localStorage.clear();
         }
     }
 })

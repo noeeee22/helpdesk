@@ -3,27 +3,23 @@ import { ref } from 'vue';
 const date = ref()
 
 const value = ref('');
-const ticket = ref('');
+const agentt = ref('');
 
-const selectedAvailability = ref();
-const availability = ref([
-    { name: 'Disponible', code: 'Ds' },
-    { name: 'Ocupado', code: 'Oc' },
-]);
-
-const selectedAgent = ref();
-const agent = ref([
-    { name: 'Milaneso', code: 'NY' },
-    { name: 'Naranjo', code: 'RM' },
-    { name: 'igriega', code: 'LDN' },
-]);
-
-const selectedRol = ref();
-const rol = ref([
-    { name: 'Admin', code: 'AM' },
-    { name: 'Agente', code: 'AG' },
-    { name: 'Usuario', code: 'US' },
-]);
+async function GetInfoAgents(){
+    loadingTable.value= true;
+    const apiRes = await Get({
+        route: "agent"
+    });
+    if(apiRes.status){
+        dataForTable.value = apiRes.response.data.results;
+    } else{
+        dataForTable.value = []
+    }
+    loadingTable.value = false;
+}
+// onMounted(()=>{
+//     GetInfoAgents()
+// });
 
 </script>
 
@@ -33,35 +29,32 @@ const rol = ref([
             <div class="col-span-12 flex flex-col">
                 <div class="grid grid-cols-12 gap-4 my-4">
                     <div class="flex flex-col col-span-12 md:col-span-6">
-                        <label for="username">Asignar Agente</label>
-                        <Select v-model="selectedAgent" :options="agent" optionLabel="name" placeholder="Seleccione un agente"
-                        class="w-full"/>
+                        <label for="name">Nombres</label>
+                        <InputText id="name" v-model="agentt" aria-describedby="username-help" class="col-span-10" />
                     </div>
                     <div class="flex flex-col col-span-12 md:col-span-6">
-                        <label for="username">Rol</label>
-                        <Select v-model="selectedRol" :options="rol" optionLabel="name" placeholder="Seleccione el estado"
-                        class="w-full"/>
+                        <label for="last_name">Apellidos</label>
+                        <InputText id="last_name" v-model="agentt" aria-describedby="username-help" class="col-span-10" />                       
                     </div>
                 </div>
                 <div class="grid grid-cols-12 gap-4 my-4">
                     <div class="flex flex-col col-span-12 md:col-span-4">
-                        <label for="username">Tickets Asignados</label>
-                        <Select  placeholder="Seleccione un agente"
-                        class="w-full"/>
+                        <label for="phone">Telefono</label>
+                        <InputText id="phone" v-model="agentt" aria-describedby="username-help" class="col-span-10" />                        
                     </div>
                     <div class="flex flex-col col-span-12 md:col-span-4">
-                        <label for="username">Ultima asignación</label>
-                        <DatePicker v-model="date" dateFormat="dd/mm/yy"/>
+                        <label for="user">Usuario</label>
+                        <InputText id="user" v-model="agentt" aria-describedby="username-help" class="col-span-10" />
+                        <!-- <DatePicker v-model="date" dateFormat="dd/mm/yy"/> -->
                     </div>
                     <div class="flex flex-col col-span-12 md:col-span-4">
-                        <label for="username">Disponiblidad</label>
-                        <Select v-model="selectedAvailability" :options="availability" optionLabel="name" placeholder="Seleccione el estado"
-                        class="w-full"/>
+                        <label for="occupation">Ocupacion</label>
+                        <InputText id="occupation" v-model="agentt" aria-describedby="username-help" class="col-span-10" />
                     </div>
                 </div>
             </div>
         </div>
         
-        <Button label="Registrar" class=" w-full !bg-cyan-600 !border-none hover:!bg-cyan-500" />
+        <Button label="Registrar" class=" w-full !bg-cyan-600 !border-none hover:!bg-cyan-500" @click="GetInfoAgents"/>
     </div>
 </template>

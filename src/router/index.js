@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../hooks/index.vue'),
+      component: () => import('../hooks/principal.vue'),
       children: [
         {
             path: 'tableTickets',
@@ -25,8 +25,29 @@ const router = createRouter({
         },
       ]
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../components/login/login.vue'),
+    },
 
   ]
 })
+
+// router.beforeEach(async (to, from, next) => {
+
+//   const authToken = localStorage.getItem('authToken');
+//   if (authToken) {
+//       if (to.name === "login") {
+//           return next({ name: "panelPrincipal" });
+//       }
+//       return next()
+//   } else {
+//       if (to.name !== 'login') {
+//           return next({ name: "login" })
+//       }
+//       return next()
+//   }
+// })
 
 export default router

@@ -6,7 +6,6 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-
 import PrimeVue from "primevue/config";
 import ConfirmationService from 'primevue/confirmationservice'
 import DialogService from 'primevue/dialogservice'
@@ -29,7 +28,6 @@ app.use(PrimeVue, {
 
 app.use(createPinia())
 app.use(router)
-
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(DialogService);

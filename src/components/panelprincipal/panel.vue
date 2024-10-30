@@ -1,5 +1,4 @@
 <script setup>
-import Card from "primevue/card";
 import moradito from "@/assets/moradito.png";
 import celestito from "@/assets/celestito.png";
 import verdecito from "@/assets/verdecito.png";

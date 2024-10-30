@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import navbar from "@/components/modules/menu/navbar.vue";
 
 </script>

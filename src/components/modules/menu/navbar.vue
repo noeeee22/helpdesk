@@ -98,8 +98,8 @@ const confirm2 = () => {
     },
     accept: async () => {
       toast.add({ severity: "info", summary: "Sesión cerrada", detail: "Cerrando sesión...", life: 3000 });
-      await authStore.logout();
-      await router.push({ name: "home" });
+      await authStore.logout(); 
+      await router.push({ name: "login" });
     },
     reject: () => {
       toast.add({ severity: 'error', summary: 'Cancelado', detail: 'Se mantuvo la sesión', life: 3000 });

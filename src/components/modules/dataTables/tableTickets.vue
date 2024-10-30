@@ -122,16 +122,16 @@ const formatDate = (value) => {
                                 placeholder="Buscar por Nombre" />
                         </template>
                     </Column>
-                    <Column field="name" header="Asunto" style="min-width: 12rem">
+                    <Column field="last_name" header="Asunto" style="min-width: 12rem">
                         <template #body="{ data }">
-                            {{ data.name }}
+                            {{ data.last_name }}
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
                             <InputText v-model="filterModel.value" type="text" @input="filterCallback()"
                                 placeholder="Buscar por Nombre" />
                         </template>
                     </Column>
-                    <Column header="Fecha" filterField="date" dataType="date" style="min-width: 10rem">
+                    <Column header="registered_date" filterField="date" dataType="date" style="min-width: 10rem">
                         <template #body="{ data }">
                             {{ formatDate(data.date) }}
                         </template>

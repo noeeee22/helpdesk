@@ -4,19 +4,6 @@ import { ref } from 'vue';
 const value = ref('');
 const ticket = ref('');
 
-const selectedState = ref();
-const state = ref([
-    { name: 'Alta', code: 'NY' },
-    { name: 'Media', code: 'RM' },
-    { name: 'Baja', code: 'LDN' },
-]);
-
-const selectedAgent = ref();
-const agent = ref([
-    { name: 'Milaneso', code: 'NY' },
-    { name: 'Naranjo', code: 'RM' },
-    { name: 'igriega', code: 'LDN' },
-]);
 
 </script>
 
@@ -30,22 +17,20 @@ const agent = ref([
         </div> -->
         <div class="grid grid-cols-12 gap-4 my-4">
             <div class="flex flex-col col-span-12 md:col-span-6">
-                <label for="username">Ticket</label>
-                <InputText id="username" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
+                <label for="title">Titulo</label>
+                <InputText id="title" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
             </div>
             <div class="flex flex-col col-span-12 md:col-span-6">
-                <label for="username">Asunto</label>
-                <InputText id="username" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
+                <label for="client">Cliente</label>
+                <InputText id="client" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
             </div>
             <div class="flex flex-col col-span-12 md:col-span-6">
-                <label for="username">Estado</label>
-                <Select v-model="selectedState" :options="state" optionLabel="name" placeholder="Seleccione el estado"
-                class="w-full"/>
+                <label for="description">Descripcion</label>
+                <InputText id="description" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
             </div>
             <div class="flex flex-col col-span-12 md:col-span-6">
-                <label for="username">Asignar Agente</label>
-                <Select v-model="selectedAgent" :options="agent" optionLabel="name" placeholder="Seleccione un agente"
-                class="w-full"/>
+                <label for="Image">Imagen</label>
+                <InputText id="Image" v-model="ticket" aria-describedby="username-help" class="col-span-10" />
             </div>
 
         </div>

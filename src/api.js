@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { AuthStore } from './stores/auth/authStore';
 
 let baseURL = import.meta.env.VITE_APP_URL;
 const instance_axios = axios.create({ baseURL });
